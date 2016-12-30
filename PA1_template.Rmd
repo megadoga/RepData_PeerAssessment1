@@ -61,7 +61,7 @@ print(median_print)
 
 
 ## What is the average daily activity pattern?
-You calculate the number of steps taken in each 5 min interval averaged accross all days using **aggregate** funtion as follows:
+You calculate the number of steps taken in each 5 min interval averaged across all days using **aggregate** function as follows:
 ```{r}
 daily_pattern<-aggregate(steps ~ interval, data = rawfile, mean)
 ```
@@ -141,7 +141,7 @@ for(i in 1:length(week_vector)){
 }
 ```
 
-Later, you need to add the vector of *the type of day* together with the original dataset, and, calculate the number of steps taken in each 5 min interval averaged accross all **WEEKDAYS** and **WEEKENDS**:
+Later, you need to add the vector of *the type of day* together with the original dataset, and, calculate the number of steps taken in each 5 min interval averaged across all **WEEKDAYS** and **WEEKENDS**:
 ```{r}
 #Merging the vector
 newdata_w<-cbind(newdata,day_type)

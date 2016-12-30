@@ -109,7 +109,7 @@ print(median_print)</code></pre>
 </div>
 <div id="what-is-the-average-daily-activity-pattern" class="section level2">
 <h2>What is the average daily activity pattern?</h2>
-<p>You calculate the number of steps taken in each 5 min interval averaged accross all days using <strong>aggregate</strong> funtion as follows:</p>
+<p>You calculate the number of steps taken in each 5 min interval averaged across all days using <strong>aggregate</strong> function as follows:</p>
 <pre class="r"><code>daily_pattern&lt;-aggregate(steps ~ interval, data = rawfile, mean)</code></pre>
 <p>Then, you plot the averaged steps time-series:</p>
 <pre class="r"><code>plot(daily_pattern,type = &quot;l&quot;,
@@ -166,7 +166,7 @@ for(i in 1:length(week_vector)){
     if(week_vector[i]==&quot;Sunday&quot;){day_type[i]&lt;-&quot;weekend&quot;}
     if(week_vector[i]==&quot;Saturday&quot;){day_type[i]&lt;-&quot;weekend&quot;}
 }</code></pre>
-<p>Later, you need to add the vector of <em>the type of day</em> together with the original dataset, and, calculate the number of steps taken in each 5 min interval averaged accross all <strong>WEEKDAYS</strong> and <strong>WEEKENDS</strong>:</p>
+<p>Later, you need to add the vector of <em>the type of day</em> together with the original dataset, and, calculate the number of steps taken in each 5 min interval averaged across all <strong>WEEKDAYS</strong> and <strong>WEEKENDS</strong>:</p>
 <pre class="r"><code>#Merging the vector
 newdata_w&lt;-cbind(newdata,day_type)
 #Number of steps taken in each 5 min interval averaged accross all WEEKDAYS
