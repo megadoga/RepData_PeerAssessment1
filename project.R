@@ -1,7 +1,7 @@
 #Loading and preprocessing the data
 #==================================
 rawfile <- read.csv(file = "activity.csv")
-#Format the character column to represent calss "Date"
+#Format the character column to represent class "Date"
 rawfile$date <- as.Date(rawfile$date,format="%Y-%m-%d")
 
 #Mean total number of steps taken per day
@@ -30,13 +30,13 @@ hist(steps_sum$steps,
      col = "dark grey",
      lwd = 2)
 
-#Calculate the total mean/median steps taken per day
+#Calculate the mean/median total steps taken per day
 #---------------------------------------------
-#steps_mean <- aggregate(steps ~ date, data = rawfile, mean)
+#Mean total number of steps taken per day
 total_steps_mean <- mean(steps_sum$steps,na.rm = TRUE)
 mean_print<-paste("The total MEAN steps taken per day is:",total_steps_mean)
 print(mean_print)
-#Total median steps taken per day
+#Median total number of steps taken per day
 total_steps_median <- median(steps_sum$steps,na.rm = TRUE)
 median_print<-paste("The total MEDIAN steps taken per day is:",total_steps_median)
 print(median_print)
@@ -70,8 +70,8 @@ na_per_day<-aggregate(steps ~ date,rawfile,na.action=NULL,function(x){sum(is.na(
 #Creation of the new dataset filling the NA's by the total mean steps per day
 newdata<-rawfile
 #Define the new total steps taken per day
-number_steps_day<-max(newdata$interval,na.rm=TRUE)
-mean_interval_steps<-total_steps_mean/number_steps_day
+intervals_per_day<-max(newdata$interval,na.rm=TRUE)
+mean_interval_steps<-total_steps_mean/intervals_per_day
 newdata$steps[is.na(newdata$steps)]<-mean_interval_steps
 steps_sum_new <- aggregate(steps ~ date ,data = newdata, sum)
 #Plot the histogram
